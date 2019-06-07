@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="Госномер" />
+          </Key>
+          <Property Name="Госномер" Type="nchar" MaxLength="9" Nullable="false" />
+          <Property Name="Модель" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID типа кузова" Type="tinyint" Nullable="false" />
+          <Property Name="ID типа коробки" Type="tinyint" Nullable="false" />
+          <Property Name="ID типа привода" Type="tinyint" Nullable="false" />
+          <Property Name="Объем двигателя" Type="tinyint" Nullable="false" />
+          <Property Name="Расход на 100 км" Type="float" Nullable="false" />
+          <Property Name="ID состояния авто" Type="tinyint" Nullable="false" />
+          <Property Name="Год выпуска" Type="smallint" Nullable="false" />
+          <Property Name="Количество мест" Type="tinyint" Nullable="false" />
+          <Property Name="Вместимость багажника" Type="smallint" Nullable="false" />
+          <Property Name="ID типа топлива" Type="tinyint" Nullable="false" />
+          <Property Name="ID типа страховки" Type="tinyint" Nullable="false" />
+          <Property Name="Цена за сутки" Type="smallint" Nullable="false" />
+          <Property Name="ID типа двигателя" Type="tinyint" Nullable="false" />
+          <Property Name="ID класса автомобиля" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Номер и серия паспрта" />
+          </Key>
+          <Property Name="Номер и серия паспрта" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ФИО" Type="nchar" MaxLength="60" Nullable="false" />
+          <Property Name="Номер телефона" Type="nchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ID класса автомобиля">
+          <Key>
+            <PropertyRef Name="ID класса автомобиля" />
+          </Key>
+          <Property Name="ID класса автомобиля" Type="tinyint" Nullable="false" />
+          <Property Name="Класс автомобиля" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ID состояния авто">
+          <Key>
+            <PropertyRef Name="ID состояния авто" />
+          </Key>
+          <Property Name="ID состояния авто" Type="tinyint" Nullable="false" />
+          <Property Name="Состояние авто" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ID статуса сделки">
+          <Key>
+            <PropertyRef Name="ID статуса сделки" />
+          </Key>
+          <Property Name="ID статуса сделки" Type="tinyint" Nullable="false" />
+          <Property Name="Статус сделки" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ID типа двигателя">
+          <Key>
+            <PropertyRef Name="ID типа двигателя" />
+          </Key>
+          <Property Name="ID типа двигателя" Type="tinyint" Nullable="false" />
+          <Property Name="Тип двигателя" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ID типа коробки">
+          <Key>
+            <PropertyRef Name="ID типа коробки" />
+          </Key>
+          <Property Name="ID типа коробки" Type="tinyint" Nullable="false" />
+          <Property Name="Тип коробки" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ID типа кузова">
+          <Key>
+            <PropertyRef Name="ID типа кузова" />
+          </Key>
+          <Property Name="ID типа кузова" Type="tinyint" Nullable="false" />
+          <Property Name="Тип кузова" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ID типа привода">
+          <Key>
+            <PropertyRef Name="ID типа привода" />
+          </Key>
+          <Property Name="ID типа привода" Type="tinyint" Nullable="false" />
+          <Property Name="Тип привода" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ID типа страховки">
+          <Key>
+            <PropertyRef Name="ID типа страховки" />
+          </Key>
+          <Property Name="ID типа страховки" Type="tinyint" Nullable="false" />
+          <Property Name="Тип страховки" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ID типа топлива">
+          <Key>
+            <PropertyRef Name="ID типа топлива" />
+          </Key>
+          <Property Name="ID типа топлива" Type="tinyint" Nullable="false" />
+          <Property Name="Тип топлива" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Trades">
+          <Key>
+            <PropertyRef Name="Номер сделки" />
+          </Key>
+          <Property Name="Номер сделки" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Госномер" Type="nchar" MaxLength="9" Nullable="false" />
+          <Property Name="Номер и серия паспорта" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID статуса сделки" Type="tinyint" Nullable="false" />
+          <Property Name="Срок сделки" Type="tinyint" Nullable="false" />
+          <Property Name="Сумма сделки" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cars_ID класса автомобиля">
+          <End Role="ID класса автомобиля" Type="Self.ID класса автомобиля" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID класса автомобиля">
+              <PropertyRef Name="ID класса автомобиля" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID класса автомобиля" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID состояния авто">
+          <End Role="ID состояния авто" Type="Self.ID состояния авто" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID состояния авто">
+              <PropertyRef Name="ID состояния авто" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID состояния авто" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID типа двигателя">
+          <End Role="ID типа двигателя" Type="Self.ID типа двигателя" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID типа двигателя">
+              <PropertyRef Name="ID типа двигателя" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID типа двигателя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID типа коробки">
+          <End Role="ID типа коробки" Type="Self.ID типа коробки" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID типа коробки">
+              <PropertyRef Name="ID типа коробки" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID типа коробки" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID типа кузова">
+          <End Role="ID типа кузова" Type="Self.ID типа кузова" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID типа кузова">
+              <PropertyRef Name="ID типа кузова" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID типа кузова" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID типа привода">
+          <End Role="ID типа привода" Type="Self.ID типа привода" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID типа привода">
+              <PropertyRef Name="ID типа привода" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID типа привода" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID типа страховки">
+          <End Role="ID типа страховки" Type="Self.ID типа страховки" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID типа страховки">
+              <PropertyRef Name="ID типа страховки" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID типа страховки" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID типа топлива">
+          <End Role="ID типа топлива" Type="Self.ID типа топлива" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID типа топлива">
+              <PropertyRef Name="ID типа топлива" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID типа топлива" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trades_Cars">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Госномер" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="Госномер" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trades_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Номер и серия паспрта" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="Номер и серия паспорта" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trades_ID статуса сделки">
+          <End Role="ID статуса сделки" Type="Self.ID статуса сделки" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID статуса сделки">
+              <PropertyRef Name="ID статуса сделки" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="ID статуса сделки" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ID класса автомобиля" EntityType="Self.ID класса автомобиля" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ID состояния авто" EntityType="Self.ID состояния авто" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ID статуса сделки" EntityType="Self.ID статуса сделки" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ID типа двигателя" EntityType="Self.ID типа двигателя" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ID типа коробки" EntityType="Self.ID типа коробки" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ID типа кузова" EntityType="Self.ID типа кузова" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ID типа привода" EntityType="Self.ID типа привода" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ID типа страховки" EntityType="Self.ID типа страховки" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ID типа топлива" EntityType="Self.ID типа топлива" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trades" EntityType="Self.Trades" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cars_ID класса автомобиля" Association="Self.FK_Cars_ID класса автомобиля">
+            <End Role="ID класса автомобиля" EntitySet="ID класса автомобиля" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID состояния авто" Association="Self.FK_Cars_ID состояния авто">
+            <End Role="ID состояния авто" EntitySet="ID состояния авто" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID типа двигателя" Association="Self.FK_Cars_ID типа двигателя">
+            <End Role="ID типа двигателя" EntitySet="ID типа двигателя" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID типа коробки" Association="Self.FK_Cars_ID типа коробки">
+            <End Role="ID типа коробки" EntitySet="ID типа коробки" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID типа кузова" Association="Self.FK_Cars_ID типа кузова">
+            <End Role="ID типа кузова" EntitySet="ID типа кузова" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID типа привода" Association="Self.FK_Cars_ID типа привода">
+            <End Role="ID типа привода" EntitySet="ID типа привода" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID типа страховки" Association="Self.FK_Cars_ID типа страховки">
+            <End Role="ID типа страховки" EntitySet="ID типа страховки" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID типа топлива" Association="Self.FK_Cars_ID типа топлива">
+            <End Role="ID типа топлива" EntitySet="ID типа топлива" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trades_Cars" Association="Self.FK_Trades_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trades_Clients" Association="Self.FK_Trades_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trades_ID статуса сделки" Association="Self.FK_Trades_ID статуса сделки">
+            <End Role="ID статуса сделки" EntitySet="ID статуса сделки" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="Госномер" />
+          </Key>
+          <Property Name="Госномер" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Модель" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ID_типа_кузова" Type="Byte" Nullable="false" />
+          <Property Name="ID_типа_коробки" Type="Byte" Nullable="false" />
+          <Property Name="ID_типа_привода" Type="Byte" Nullable="false" />
+          <Property Name="Объем_двигателя" Type="Byte" Nullable="false" />
+          <Property Name="Расход_на_100_км" Type="Double" Nullable="false" />
+          <Property Name="ID_состояния_авто" Type="Byte" Nullable="false" />
+          <Property Name="Год_выпуска" Type="Int16" Nullable="false" />
+          <Property Name="Количество_мест" Type="Byte" Nullable="false" />
+          <Property Name="Вместимость_багажника" Type="Int16" Nullable="false" />
+          <Property Name="ID_типа_топлива" Type="Byte" Nullable="false" />
+          <Property Name="ID_типа_страховки" Type="Byte" Nullable="false" />
+          <Property Name="Цена_за_сутки" Type="Int16" Nullable="false" />
+          <Property Name="ID_типа_двигателя" Type="Byte" Nullable="false" />
+          <Property Name="ID_класса_автомобиля" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="ID_класса_автомобиля1" Relationship="Self.FK_Cars_ID_класса_автомобиля" FromRole="Cars" ToRole="ID_класса_автомобиля" />
+          <NavigationProperty Name="ID_состояния_авто1" Relationship="Self.FK_Cars_ID_состояния_авто" FromRole="Cars" ToRole="ID_состояния_авто" />
+          <NavigationProperty Name="ID_типа_двигателя1" Relationship="Self.FK_Cars_ID_типа_двигателя" FromRole="Cars" ToRole="ID_типа_двигателя" />
+          <NavigationProperty Name="ID_типа_коробки1" Relationship="Self.FK_Cars_ID_типа_коробки" FromRole="Cars" ToRole="ID_типа_коробки" />
+          <NavigationProperty Name="ID_типа_кузова1" Relationship="Self.FK_Cars_ID_типа_кузова" FromRole="Cars" ToRole="ID_типа_кузова" />
+          <NavigationProperty Name="ID_типа_привода1" Relationship="Self.FK_Cars_ID_типа_привода" FromRole="Cars" ToRole="ID_типа_привода" />
+          <NavigationProperty Name="ID_типа_страховки1" Relationship="Self.FK_Cars_ID_типа_страховки" FromRole="Cars" ToRole="ID_типа_страховки" />
+          <NavigationProperty Name="ID_типа_топлива1" Relationship="Self.FK_Cars_ID_типа_топлива" FromRole="Cars" ToRole="ID_типа_топлива" />
+          <NavigationProperty Name="Trades" Relationship="Self.FK_Trades_Cars" FromRole="Cars" ToRole="Trades" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Номер_и_серия_паспрта" />
+          </Key>
+          <Property Name="Номер_и_серия_паспрта" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ФИО" Type="String" MaxLength="60" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Номер_телефона" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Trades" Relationship="Self.FK_Trades_Clients" FromRole="Clients" ToRole="Trades" />
+        </EntityType>
+        <EntityType Name="ID_класса_автомобиля">
+          <Key>
+            <PropertyRef Name="ID_класса_автомобиля1" />
+          </Key>
+          <Property Name="ID_класса_автомобиля1" Type="Byte" Nullable="false" />
+          <Property Name="Класс_автомобиля" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_ID_класса_автомобиля" FromRole="ID_класса_автомобиля" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="ID_состояния_авто">
+          <Key>
+            <PropertyRef Name="ID_состояния_авто1" />
+          </Key>
+          <Property Name="ID_состояния_авто1" Type="Byte" Nullable="false" />
+          <Property Name="Состояние_авто" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_ID_состояния_авто" FromRole="ID_состояния_авто" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="ID_статуса_сделки">
+          <Key>
+            <PropertyRef Name="ID_статуса_сделки1" />
+          </Key>
+          <Property Name="ID_статуса_сделки1" Type="Byte" Nullable="false" />
+          <Property Name="Статус_сделки" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Trades" Relationship="Self.FK_Trades_ID_статуса_сделки" FromRole="ID_статуса_сделки" ToRole="Trades" />
+        </EntityType>
+        <EntityType Name="ID_типа_двигателя">
+          <Key>
+            <PropertyRef Name="ID_типа_двигателя1" />
+          </Key>
+          <Property Name="ID_типа_двигателя1" Type="Byte" Nullable="false" />
+          <Property Name="Тип_двигателя" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_ID_типа_двигателя" FromRole="ID_типа_двигателя" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="ID_типа_коробки">
+          <Key>
+            <PropertyRef Name="ID_типа_коробки1" />
+          </Key>
+          <Property Name="ID_типа_коробки1" Type="Byte" Nullable="false" />
+          <Property Name="Тип_коробки" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_ID_типа_коробки" FromRole="ID_типа_коробки" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="ID_типа_кузова">
+          <Key>
+            <PropertyRef Name="ID_типа_кузова1" />
+          </Key>
+          <Property Name="ID_типа_кузова1" Type="Byte" Nullable="false" />
+          <Property Name="Тип_кузова" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_ID_типа_кузова" FromRole="ID_типа_кузова" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="ID_типа_привода">
+          <Key>
+            <PropertyRef Name="ID_типа_привода1" />
+          </Key>
+          <Property Name="ID_типа_привода1" Type="Byte" Nullable="false" />
+          <Property Name="Тип_привода" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_ID_типа_привода" FromRole="ID_типа_привода" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="ID_типа_страховки">
+          <Key>
+            <PropertyRef Name="ID_типа_страховки1" />
+          </Key>
+          <Property Name="ID_типа_страховки1" Type="Byte" Nullable="false" />
+          <Property Name="Тип_страховки" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_ID_типа_страховки" FromRole="ID_типа_страховки" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="ID_типа_топлива">
+          <Key>
+            <PropertyRef Name="ID_типа_топлива1" />
+          </Key>
+          <Property Name="ID_типа_топлива1" Type="Byte" Nullable="false" />
+          <Property Name="Тип_топлива" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_ID_типа_топлива" FromRole="ID_типа_топлива" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Trades">
+          <Key>
+            <PropertyRef Name="Номер_сделки" />
+          </Key>
+          <Property Name="Номер_сделки" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Госномер" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Номер_и_серия_паспорта" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ID_статуса_сделки" Type="Byte" Nullable="false" />
+          <Property Name="Срок_сделки" Type="Byte" Nullable="false" />
+          <Property Name="Сумма_сделки" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Trades_Cars" FromRole="Trades" ToRole="Cars" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Trades_Clients" FromRole="Trades" ToRole="Clients" />
+          <NavigationProperty Name="ID_статуса_сделки1" Relationship="Self.FK_Trades_ID_статуса_сделки" FromRole="Trades" ToRole="ID_статуса_сделки" />
+        </EntityType>
+        <Association Name="FK_Cars_ID_класса_автомобиля">
+          <End Role="ID_класса_автомобиля" Type="Self.ID_класса_автомобиля" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID_класса_автомобиля">
+              <PropertyRef Name="ID_класса_автомобиля1" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_класса_автомобиля" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID_состояния_авто">
+          <End Role="ID_состояния_авто" Type="Self.ID_состояния_авто" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID_состояния_авто">
+              <PropertyRef Name="ID_состояния_авто1" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_состояния_авто" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID_типа_двигателя">
+          <End Role="ID_типа_двигателя" Type="Self.ID_типа_двигателя" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID_типа_двигателя">
+              <PropertyRef Name="ID_типа_двигателя1" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_типа_двигателя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID_типа_коробки">
+          <End Role="ID_типа_коробки" Type="Self.ID_типа_коробки" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID_типа_коробки">
+              <PropertyRef Name="ID_типа_коробки1" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_типа_коробки" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID_типа_кузова">
+          <End Role="ID_типа_кузова" Type="Self.ID_типа_кузова" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID_типа_кузова">
+              <PropertyRef Name="ID_типа_кузова1" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_типа_кузова" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID_типа_привода">
+          <End Role="ID_типа_привода" Type="Self.ID_типа_привода" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID_типа_привода">
+              <PropertyRef Name="ID_типа_привода1" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_типа_привода" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID_типа_страховки">
+          <End Role="ID_типа_страховки" Type="Self.ID_типа_страховки" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID_типа_страховки">
+              <PropertyRef Name="ID_типа_страховки1" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_типа_страховки" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_ID_типа_топлива">
+          <End Role="ID_типа_топлива" Type="Self.ID_типа_топлива" Multiplicity="1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID_типа_топлива">
+              <PropertyRef Name="ID_типа_топлива1" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="ID_типа_топлива" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trades_Cars">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Госномер" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="Госномер" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trades_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Номер_и_серия_паспрта" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="Номер_и_серия_паспорта" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trades_ID_статуса_сделки">
+          <End Role="ID_статуса_сделки" Type="Self.ID_статуса_сделки" Multiplicity="1" />
+          <End Role="Trades" Type="Self.Trades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ID_статуса_сделки">
+              <PropertyRef Name="ID_статуса_сделки1" />
+            </Principal>
+            <Dependent Role="Trades">
+              <PropertyRef Name="ID_статуса_сделки" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AutoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cars" EntityType="Self.Cars" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="ID_класса_автомобиля" EntityType="Self.ID_класса_автомобиля" />
+          <EntitySet Name="ID_состояния_авто" EntityType="Self.ID_состояния_авто" />
+          <EntitySet Name="ID_статуса_сделки" EntityType="Self.ID_статуса_сделки" />
+          <EntitySet Name="ID_типа_двигателя" EntityType="Self.ID_типа_двигателя" />
+          <EntitySet Name="ID_типа_коробки" EntityType="Self.ID_типа_коробки" />
+          <EntitySet Name="ID_типа_кузова" EntityType="Self.ID_типа_кузова" />
+          <EntitySet Name="ID_типа_привода" EntityType="Self.ID_типа_привода" />
+          <EntitySet Name="ID_типа_страховки" EntityType="Self.ID_типа_страховки" />
+          <EntitySet Name="ID_типа_топлива" EntityType="Self.ID_типа_топлива" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Trades" EntityType="Self.Trades" />
+          <AssociationSet Name="FK_Cars_ID_класса_автомобиля" Association="Self.FK_Cars_ID_класса_автомобиля">
+            <End Role="ID_класса_автомобиля" EntitySet="ID_класса_автомобиля" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID_состояния_авто" Association="Self.FK_Cars_ID_состояния_авто">
+            <End Role="ID_состояния_авто" EntitySet="ID_состояния_авто" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID_типа_двигателя" Association="Self.FK_Cars_ID_типа_двигателя">
+            <End Role="ID_типа_двигателя" EntitySet="ID_типа_двигателя" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID_типа_коробки" Association="Self.FK_Cars_ID_типа_коробки">
+            <End Role="ID_типа_коробки" EntitySet="ID_типа_коробки" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID_типа_кузова" Association="Self.FK_Cars_ID_типа_кузова">
+            <End Role="ID_типа_кузова" EntitySet="ID_типа_кузова" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID_типа_привода" Association="Self.FK_Cars_ID_типа_привода">
+            <End Role="ID_типа_привода" EntitySet="ID_типа_привода" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID_типа_страховки" Association="Self.FK_Cars_ID_типа_страховки">
+            <End Role="ID_типа_страховки" EntitySet="ID_типа_страховки" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_ID_типа_топлива" Association="Self.FK_Cars_ID_типа_топлива">
+            <End Role="ID_типа_топлива" EntitySet="ID_типа_топлива" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trades_Cars" Association="Self.FK_Trades_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trades_Clients" Association="Self.FK_Trades_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trades_ID_статуса_сделки" Association="Self.FK_Trades_ID_статуса_сделки">
+            <End Role="ID_статуса_сделки" EntitySet="ID_статуса_сделки" />
+            <End Role="Trades" EntitySet="Trades" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="AutoEntities">
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="Model.Cars">
+              <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="Госномер" ColumnName="Госномер" />
+                <ScalarProperty Name="Модель" ColumnName="Модель" />
+                <ScalarProperty Name="ID_типа_кузова" ColumnName="ID типа кузова" />
+                <ScalarProperty Name="ID_типа_коробки" ColumnName="ID типа коробки" />
+                <ScalarProperty Name="ID_типа_привода" ColumnName="ID типа привода" />
+                <ScalarProperty Name="Объем_двигателя" ColumnName="Объем двигателя" />
+                <ScalarProperty Name="Расход_на_100_км" ColumnName="Расход на 100 км" />
+                <ScalarProperty Name="ID_состояния_авто" ColumnName="ID состояния авто" />
+                <ScalarProperty Name="Год_выпуска" ColumnName="Год выпуска" />
+                <ScalarProperty Name="Количество_мест" ColumnName="Количество мест" />
+                <ScalarProperty Name="Вместимость_багажника" ColumnName="Вместимость багажника" />
+                <ScalarProperty Name="ID_типа_топлива" ColumnName="ID типа топлива" />
+                <ScalarProperty Name="ID_типа_страховки" ColumnName="ID типа страховки" />
+                <ScalarProperty Name="Цена_за_сутки" ColumnName="Цена за сутки" />
+                <ScalarProperty Name="ID_типа_двигателя" ColumnName="ID типа двигателя" />
+                <ScalarProperty Name="ID_класса_автомобиля" ColumnName="ID класса автомобиля" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Model.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Номер_и_серия_паспрта" ColumnName="Номер и серия паспрта" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Номер_телефона" ColumnName="Номер телефона" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ID_класса_автомобиля">
+            <EntityTypeMapping TypeName="Model.ID_класса_автомобиля">
+              <MappingFragment StoreEntitySet="ID класса автомобиля">
+                <ScalarProperty Name="ID_класса_автомобиля1" ColumnName="ID класса автомобиля" />
+                <ScalarProperty Name="Класс_автомобиля" ColumnName="Класс автомобиля" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ID_состояния_авто">
+            <EntityTypeMapping TypeName="Model.ID_состояния_авто">
+              <MappingFragment StoreEntitySet="ID состояния авто">
+                <ScalarProperty Name="ID_состояния_авто1" ColumnName="ID состояния авто" />
+                <ScalarProperty Name="Состояние_авто" ColumnName="Состояние авто" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ID_статуса_сделки">
+            <EntityTypeMapping TypeName="Model.ID_статуса_сделки">
+              <MappingFragment StoreEntitySet="ID статуса сделки">
+                <ScalarProperty Name="ID_статуса_сделки1" ColumnName="ID статуса сделки" />
+                <ScalarProperty Name="Статус_сделки" ColumnName="Статус сделки" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ID_типа_двигателя">
+            <EntityTypeMapping TypeName="Model.ID_типа_двигателя">
+              <MappingFragment StoreEntitySet="ID типа двигателя">
+                <ScalarProperty Name="ID_типа_двигателя1" ColumnName="ID типа двигателя" />
+                <ScalarProperty Name="Тип_двигателя" ColumnName="Тип двигателя" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ID_типа_коробки">
+            <EntityTypeMapping TypeName="Model.ID_типа_коробки">
+              <MappingFragment StoreEntitySet="ID типа коробки">
+                <ScalarProperty Name="ID_типа_коробки1" ColumnName="ID типа коробки" />
+                <ScalarProperty Name="Тип_коробки" ColumnName="Тип коробки" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ID_типа_кузова">
+            <EntityTypeMapping TypeName="Model.ID_типа_кузова">
+              <MappingFragment StoreEntitySet="ID типа кузова">
+                <ScalarProperty Name="ID_типа_кузова1" ColumnName="ID типа кузова" />
+                <ScalarProperty Name="Тип_кузова" ColumnName="Тип кузова" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ID_типа_привода">
+            <EntityTypeMapping TypeName="Model.ID_типа_привода">
+              <MappingFragment StoreEntitySet="ID типа привода">
+                <ScalarProperty Name="ID_типа_привода1" ColumnName="ID типа привода" />
+                <ScalarProperty Name="Тип_привода" ColumnName="Тип привода" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ID_типа_страховки">
+            <EntityTypeMapping TypeName="Model.ID_типа_страховки">
+              <MappingFragment StoreEntitySet="ID типа страховки">
+                <ScalarProperty Name="ID_типа_страховки1" ColumnName="ID типа страховки" />
+                <ScalarProperty Name="Тип_страховки" ColumnName="Тип страховки" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ID_типа_топлива">
+            <EntityTypeMapping TypeName="Model.ID_типа_топлива">
+              <MappingFragment StoreEntitySet="ID типа топлива">
+                <ScalarProperty Name="ID_типа_топлива1" ColumnName="ID типа топлива" />
+                <ScalarProperty Name="Тип_топлива" ColumnName="Тип топлива" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trades">
+            <EntityTypeMapping TypeName="Model.Trades">
+              <MappingFragment StoreEntitySet="Trades">
+                <ScalarProperty Name="Номер_сделки" ColumnName="Номер сделки" />
+                <ScalarProperty Name="Госномер" ColumnName="Госномер" />
+                <ScalarProperty Name="Номер_и_серия_паспорта" ColumnName="Номер и серия паспорта" />
+                <ScalarProperty Name="ID_статуса_сделки" ColumnName="ID статуса сделки" />
+                <ScalarProperty Name="Срок_сделки" ColumnName="Срок сделки" />
+                <ScalarProperty Name="Сумма_сделки" ColumnName="Сумма сделки" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище Model.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище Model.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище Model.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище Model.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище Model.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище Model.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище Model.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="135c04ee3a0d4cd794456fa5ead9580b" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="Model.Cars" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Clients" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ID_класса_автомобиля" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ID_состояния_авто" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ID_статуса_сделки" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ID_типа_двигателя" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ID_типа_коробки" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ID_типа_кузова" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ID_типа_привода" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ID_типа_страховки" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ID_типа_топлива" Width="1.5" PointX="0.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Trades" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Cars_ID_класса_автомобиля" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cars_ID_состояния_авто" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cars_ID_типа_двигателя" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cars_ID_типа_коробки" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cars_ID_типа_кузова" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cars_ID_типа_привода" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cars_ID_типа_страховки" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Cars_ID_типа_топлива" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Trades_Cars" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Trades_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Trades_ID_статуса_сделки" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

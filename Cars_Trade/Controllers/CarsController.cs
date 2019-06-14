@@ -15,14 +15,27 @@ namespace Cars_Trade.Controllers
         private AutoEntities db = new AutoEntities();
 
         // GET: Cars
-        public ActionResult Index()
+        public ActionResult Index_Client()
         {
-            var cars = db.Cars.Include(c => c.ID_класса_автомобиля1).Include(c => c.ID_состояния_авто1).Include(c => c.ID_типа_двигателя1).Include(c => c.ID_типа_коробки1).Include(c => c.ID_типа_кузова1).Include(c => c.ID_типа_привода1).Include(c => c.ID_типа_страховки1).Include(c => c.ID_типа_топлива1);
+
+            //var cars = db.Cars.Include(c => c.ID_класса_автомобиля1).Include(c => c.ID_состояния_авто1).Include(c => c.ID_типа_двигателя1).Include(c => c.ID_типа_коробки1).Include(c => c.ID_типа_кузова1).Include(c => c.ID_типа_привода1).Include(c => c.ID_типа_страховки1).Include(c => c.ID_типа_топлива1);
+            var cars = from c in db.Cars
+                       where c.ID_состояния_авто == 1
+                       select c; 
             return View(cars.ToList());
         }
 
-        // GET: Cars/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Index_admin()
+        {
+
+            //var cars = db.Cars.Include(c => c.ID_класса_автомобиля1).Include(c => c.ID_состояния_авто1).Include(c => c.ID_типа_двигателя1).Include(c => c.ID_типа_коробки1).Include(c => c.ID_типа_кузова1).Include(c => c.ID_типа_привода1).Include(c => c.ID_типа_страховки1).Include(c => c.ID_типа_топлива1);
+            var cars = from c in db.Cars
+                       select c;
+            return View(cars.ToList());
+        }
+
+        // GET: Cars/Details_Client/
+        public ActionResult Details_Client(string id)
         {
             if (id == null)
             {
@@ -40,7 +53,6 @@ namespace Cars_Trade.Controllers
         public ActionResult Create()
         {
             ViewBag.ID_класса_автомобиля = new SelectList(db.ID_класса_автомобиля, "ID_класса_автомобиля1", "Класс_автомобиля");
-            ViewBag.ID_состояния_авто = new SelectList(db.ID_состояния_авто, "ID_состояния_авто1", "Состояние_авто");
             ViewBag.ID_типа_двигателя = new SelectList(db.ID_типа_двигателя, "ID_типа_двигателя1", "Тип_двигателя");
             ViewBag.ID_типа_коробки = new SelectList(db.ID_типа_коробки, "ID_типа_коробки1", "Тип_коробки");
             ViewBag.ID_типа_кузова = new SelectList(db.ID_типа_кузова, "ID_типа_кузова1", "Тип_кузова");
@@ -59,13 +71,13 @@ namespace Cars_Trade.Controllers
         {
             if (ModelState.IsValid)
             {
+                cars.ID_состояния_авто = 1;
                 db.Cars.Add(cars);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.ID_класса_автомобиля = new SelectList(db.ID_класса_автомобиля, "ID_класса_автомобиля1", "Класс_автомобиля", cars.ID_класса_автомобиля);
-            ViewBag.ID_состояния_авто = new SelectList(db.ID_состояния_авто, "ID_состояния_авто1", "Состояние_авто", cars.ID_состояния_авто);
             ViewBag.ID_типа_двигателя = new SelectList(db.ID_типа_двигателя, "ID_типа_двигателя1", "Тип_двигателя", cars.ID_типа_двигателя);
             ViewBag.ID_типа_коробки = new SelectList(db.ID_типа_коробки, "ID_типа_коробки1", "Тип_коробки", cars.ID_типа_коробки);
             ViewBag.ID_типа_кузова = new SelectList(db.ID_типа_кузова, "ID_типа_кузова1", "Тип_кузова", cars.ID_типа_кузова);

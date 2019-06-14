@@ -260,19 +260,16 @@
     <Content Include="Views\Home\Password.cshtml" />
     <Content Include="Views\Cars\Create.cshtml" />
     <Content Include="Views\Cars\Delete.cshtml" />
-    <Content Include="Views\Cars\Details.cshtml" />
+    <Content Include="Views\Cars\Details_Client.cshtml" />
     <Content Include="Views\Cars\Edit.cshtml" />
-    <Content Include="Views\Cars\Index.cshtml" />
+    <Content Include="Views\Cars\Index_Client.cshtml" />
     <Content Include="Views\Clients\Create.cshtml" />
-    <Content Include="Views\Clients\Delete.cshtml" />
-    <Content Include="Views\Clients\Details.cshtml" />
-    <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Trades\Create.cshtml" />
-    <Content Include="Views\Trades\Delete.cshtml" />
-    <Content Include="Views\Trades\Details.cshtml" />
-    <Content Include="Views\Trades\Edit.cshtml" />
     <Content Include="Views\Trades\Index.cshtml" />
+    <Content Include="Views\Home\Employee_Fr.cshtml" />
+    <Content Include="Views\Home\Admin_Fr.cshtml" />
+    <Content Include="Views\Cars\Index_Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

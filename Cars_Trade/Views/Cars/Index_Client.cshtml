@@ -1,33 +1,21 @@
 ﻿@model IEnumerable<Cars_Trade.Models.Cars>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index_Client";
 }
 
-<h2>Index</h2>
+<h2>Список авто для клиента</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Модель)
+            @Html.DisplayName("Модель")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Объем_двигателя)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Расход_на_100_км)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Год_выпуска)
+            @Html.DisplayName("Год выпуска")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Количество_мест)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Вместимость_багажника)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Цена_за_сутки)
@@ -39,9 +27,6 @@
             @Html.DisplayNameFor(model => model.ID_состояния_авто1.Состояние_авто)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ID_типа_двигателя1.Тип_двигателя)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.ID_типа_коробки1.Тип_коробки)
         </th>
         <th>
@@ -49,9 +34,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ID_типа_привода1.Тип_привода)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_типа_страховки1.Тип_страховки)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ID_типа_топлива1.Тип_топлива)
@@ -65,19 +47,10 @@
             @Html.DisplayFor(modelItem => item.Модель)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Объем_двигателя)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Расход_на_100_км)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Год_выпуска)
+            @Html.DisplayFor(modelItem => item.Год_выпуска, "Год выпуска")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Количество_мест)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Вместимость_багажника)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Цена_за_сутки)
@@ -89,9 +62,6 @@
             @Html.DisplayFor(modelItem => item.ID_состояния_авто1.Состояние_авто)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ID_типа_двигателя1.Тип_двигателя)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.ID_типа_коробки1.Тип_коробки)
         </td>
         <td>
@@ -101,15 +71,11 @@
             @Html.DisplayFor(modelItem => item.ID_типа_привода1.Тип_привода)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ID_типа_страховки1.Тип_страховки)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.ID_типа_топлива1.Тип_топлива)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Госномер }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Госномер }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Госномер })
+            @Html.ActionLink("Забронировать", "Create", "Clients",new { id = item.Госномер }, null) |
+            @Html.ActionLink("Подробнее", "Details_Client", "Cars", new { id = item.Госномер }, null)
         </td>
     </tr>
 }

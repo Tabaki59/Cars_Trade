@@ -72,14 +72,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ID_состояния_авто, "ID_состояния_авто", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID_состояния_авто", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID_состояния_авто, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.Год_выпуска, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Год_выпуска, new { htmlAttributes = new { @class = "form-control" } })

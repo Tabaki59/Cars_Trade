@@ -16,12 +16,6 @@ namespace Cars_Trade.Controllers
             return View();
         }
 
-        public ActionResult Click_Client()//Enter like Client
-        {
-            Choose.choose = 1;
-            return View("Client_fr");
-        }
-
         public ActionResult Click_Employee()//Enter like Employee
         {
             Choose.choose = 2;

@@ -17,7 +17,7 @@ namespace Cars_Trade.Controllers
         // GET: Cars
         public ActionResult Index_Client()
         {
-
+            Choose.choose = 1;
             //var cars = db.Cars.Include(c => c.ID_класса_автомобиля1).Include(c => c.ID_состояния_авто1).Include(c => c.ID_типа_двигателя1).Include(c => c.ID_типа_коробки1).Include(c => c.ID_типа_кузова1).Include(c => c.ID_типа_привода1).Include(c => c.ID_типа_страховки1).Include(c => c.ID_типа_топлива1);
             var cars = from c in db.Cars
                        where c.ID_состояния_авто == 1

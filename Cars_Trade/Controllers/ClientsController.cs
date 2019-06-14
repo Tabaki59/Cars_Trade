@@ -46,16 +46,34 @@ namespace Cars_Trade.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Номер_и_серия_паспрта,ФИО,Номер_телефона")] Clients clients)
+        public ActionResult Create([Bind(Include = "Номер_и_серия_паспрта,ФИО,Номер_телефона")] Clients clients,string id, [Bind(Include = "Номер_сделки,Госномер,Номер_и_серия_паспорта,ID_статуса_сделки,Срок_сделки,Сумма_сделки")] Trades trades)
         {
             if (ModelState.IsValid)
             {
+                if (Choose.choose == 1)
+                {
+                    Cars cars = db.Cars.Find(id);
+                    cars.ID_состояния_авто = 2;
+                    trades.ID_статуса_сделки = 2;
+                    trades.Госномер = id;
+                    trades.Срок_сделки = 7;
+                    trades.Сумма_сделки = cars.Цена_за_сутки * 7;
+                    trades.Номер_и_серия_паспорта = clients.Номер_и_серия_паспрта;
+                    int n = 0;
+                    if (db.Trades==null)
+                    n = db.Trades.Max(t => t.Номер_сделки);
+                    trades.Номер_сделки = Convert.ToByte(n+1);
+                    db.Trades.Add(trades);
+                }
+                if (Choose.choose == 2)
+                {
+
+                }
                 db.Clients.Add(clients);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Keys");
             }
-
-            return View(clients);
+            return View();
         }
 
         // GET: Clients/Edit/5

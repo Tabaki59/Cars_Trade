@@ -14,7 +14,7 @@ namespace Cars_Trade.Models
     
     public partial class Trades
     {
-        public string Номер_сделки { get; set; }
+        public byte Номер_сделки { get; set; }
         public string Госномер { get; set; }
         public string Номер_и_серия_паспорта { get; set; }
         public byte ID_статуса_сделки { get; set; }

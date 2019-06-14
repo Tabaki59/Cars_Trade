@@ -270,6 +270,7 @@
     <Content Include="Views\Home\Employee_Fr.cshtml" />
     <Content Include="Views\Home\Admin_Fr.cshtml" />
     <Content Include="Views\Cars\Index_Admin.cshtml" />
+    <Content Include="Views\Clients\Keys.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

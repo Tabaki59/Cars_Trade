@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cars">
           <Key>
             <PropertyRef Name="Госномер" />
@@ -111,7 +111,7 @@
           <Key>
             <PropertyRef Name="Номер сделки" />
           </Key>
-          <Property Name="Номер сделки" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Номер сделки" Type="tinyint" Nullable="false" />
           <Property Name="Госномер" Type="nchar" MaxLength="9" Nullable="false" />
           <Property Name="Номер и серия паспорта" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="ID статуса сделки" Type="tinyint" Nullable="false" />
@@ -340,8 +340,7 @@
             <End Role="Trades" EntitySet="Trades" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -470,7 +469,7 @@
           <Key>
             <PropertyRef Name="Номер_сделки" />
           </Key>
-          <Property Name="Номер_сделки" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Номер_сделки" Type="Byte" Nullable="false" />
           <Property Name="Госномер" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Номер_и_серия_паспорта" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="ID_статуса_сделки" Type="Byte" Nullable="false" />

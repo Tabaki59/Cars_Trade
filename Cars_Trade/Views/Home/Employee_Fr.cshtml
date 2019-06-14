@@ -1,17 +1,34 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Home Page";
 }
 
-<!DOCTYPE html>
+<h2>Здравствуйте, сотрудник</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Employee_Fr</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+<p>
+    @using (Html.BeginForm("Index_Employee", "Cars", FormMethod.Post))
+    {<center></center><br>
+        <center><button>Просмотреть список автомобилей</button></center>
+    }
+
+</p>
+<p>
+    @using (Html.BeginForm("Index", "Cars", FormMethod.Post))
+    {<center></center><br>
+        <center><button>Просмотреть список всех автомобилей</button></center>
+    }
+
+</p>
+<p>
+    @using (Html.BeginForm("Index", "Trades", FormMethod.Post))
+    {<center></center><br>
+        <center><button>Просмотреть список неподтвержденных сделок</button></center>
+    }
+
+</p>
+<p>
+    @using (Html.BeginForm("Index", "Trades", FormMethod.Post))
+    {<center></center><br>
+        <center><button>Просмотреть список открытых сделок</button></center>
+    }
+
+</p>

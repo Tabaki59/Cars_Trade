@@ -53,25 +53,39 @@ namespace Cars_Trade.Controllers
                 if (Choose.choose == 1)
                 {
                     Cars cars = db.Cars.Find(id);
-                    cars.ID_состояния_авто = 2;
-                    trades.ID_статуса_сделки = 2;
+                    cars.ID_состояния_авто = 2; //Забронировано
+                    trades.ID_статуса_сделки = 2; //На рассмотрении
                     trades.Госномер = id;
                     trades.Срок_сделки = 7;
                     trades.Сумма_сделки = cars.Цена_за_сутки * 7;
                     trades.Номер_и_серия_паспорта = clients.Номер_и_серия_паспрта;
                     int n = 0;
-                    if (db.Trades==null)
+                    if (db.Trades!=null)
                     n = db.Trades.Max(t => t.Номер_сделки);
-                    trades.Номер_сделки = Convert.ToByte(n+1);
+                    trades.Номер_сделки = Convert.ToByte(n+1);//Создание ключа сделки
                     db.Trades.Add(trades);
+                    db.Clients.Add(clients);
+                    db.SaveChanges();
+                    return View("Keys");
                 }
                 if (Choose.choose == 2)
                 {
-
+                    Cars cars = db.Cars.Find(id);
+                    cars.ID_состояния_авто = 3; //На руках
+                    trades.ID_статуса_сделки = 1; //Открыта
+                    trades.Госномер = id;
+                    trades.Срок_сделки = 7;
+                    trades.Сумма_сделки = cars.Цена_за_сутки * 7;
+                    trades.Номер_и_серия_паспорта = clients.Номер_и_серия_паспрта;
+                    int n = 0;
+                    if (db.Trades != null)
+                        n = db.Trades.Max(t => t.Номер_сделки);
+                    trades.Номер_сделки = Convert.ToByte(n + 1);//Создание ключа сделки
+                    db.Trades.Add(trades);
+                    db.Clients.Add(clients);
+                    db.SaveChanges();
+                    return RedirectToAction("Index_Employee","Cars");
                 }
-                db.Clients.Add(clients);
-                db.SaveChanges();
-                return RedirectToAction("Keys");
             }
             return View();
         }

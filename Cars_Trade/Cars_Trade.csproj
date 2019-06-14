@@ -265,12 +265,13 @@
     <Content Include="Views\Cars\Index_Client.cshtml" />
     <Content Include="Views\Clients\Create.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
-    <Content Include="Views\Trades\Create.cshtml" />
     <Content Include="Views\Trades\Index.cshtml" />
     <Content Include="Views\Home\Employee_Fr.cshtml" />
     <Content Include="Views\Home\Admin_Fr.cshtml" />
     <Content Include="Views\Cars\Index_Admin.cshtml" />
     <Content Include="Views\Clients\Keys.cshtml" />
+    <Content Include="Views\Cars\Index_Employee.cshtml" />
+    <Content Include="Views\Cars\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

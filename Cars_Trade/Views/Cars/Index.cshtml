@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Cars_Trade.Models.Cars>
+
+@{
+    ViewBag.Title = "Index_Client";
+}
+
+<h2>Список всех авто</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Модель")
+        </th>
+        <th>
+            @Html.DisplayName("Год выпуска")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Количество_мест)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Цена_за_сутки)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_класса_автомобиля1.Класс_автомобиля)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_состояния_авто1.Состояние_авто)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_типа_коробки1.Тип_коробки)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_типа_кузова1.Тип_кузова)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_типа_привода1.Тип_привода)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_типа_топлива1.Тип_топлива)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Модель)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Год_выпуска, "Год выпуска")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Количество_мест)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Цена_за_сутки)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_класса_автомобиля1.Класс_автомобиля)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_состояния_авто1.Состояние_авто)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_типа_коробки1.Тип_коробки)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_типа_кузова1.Тип_кузова)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_типа_привода1.Тип_привода)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_типа_топлива1.Тип_топлива)
+            </td>
+            <td>
+                @Html.ActionLink("Подробнее", "Details_Client", "Cars", new { id = item.Госномер }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+

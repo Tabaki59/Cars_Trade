@@ -14,11 +14,57 @@ namespace Cars_Trade.Controllers
     {
         private AutoEntities db = new AutoEntities();
 
+        public ActionResult Prove(int id)
+        {
+            Trades tr = db.Trades.Find(id);
+            tr.ID_статуса_сделки = 1;
+            Cars cr = db.Cars.Find(tr.Госномер);
+            cr.ID_состояния_авто = 3;
+            db.SaveChanges();
+            return RedirectToAction("Index_Qwestion");
+        }
+
+        public ActionResult Otkaz(int id)
+        {
+            Trades tr = db.Trades.Find(id);
+            tr.ID_статуса_сделки = 3;
+            Cars cr = db.Cars.Find(tr.Госномер);
+            cr.ID_состояния_авто = 1;
+            db.SaveChanges();
+            return RedirectToAction("Index_Qwestion");
+        }
+
+        public ActionResult Close(int id)
+        {
+            Trades tr = db.Trades.Find(id);
+            tr.ID_статуса_сделки = 3;
+            Cars cr = db.Cars.Find(tr.Госномер);
+            cr.ID_состояния_авто = 1;
+            db.SaveChanges();
+            return RedirectToAction("Index_Open");
+        }
+
         // GET: Trades
         public ActionResult Index()
         {
             var trades = db.Trades.Include(t => t.Cars).Include(t => t.Clients).Include(t => t.ID_статуса_сделки1);
             return View(trades.ToList());
+        }
+
+        public ActionResult Index_Open()
+        {
+            var trade = from t in db.Trades
+                       where t.ID_статуса_сделки == 1
+                       select t;
+            return View(trade.ToList());
+        }
+
+        public ActionResult Index_Qwestion()
+        {
+            var trade = from t in db.Trades
+                        where t.ID_статуса_сделки == 2
+                        select t;
+            return View(trade.ToList());
         }
 
         // GET: Trades/Details/5

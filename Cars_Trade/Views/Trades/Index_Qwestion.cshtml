@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Cars_Trade.Models.Trades>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Наши сделки</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Срок_сделки)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Сумма_сделки)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cars.Модель)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clients.ФИО)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_статуса_сделки1.Статус_сделки)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Срок_сделки)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Сумма_сделки)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cars.Модель)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clients.ФИО)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_статуса_сделки1.Статус_сделки)
+        <td>
+            @Html.ActionLink("Подтвердить сделку", "Prove", "Trades", new { id = item.Номер_сделки }, null) |
+            @Html.ActionLink("Отклонить сделку", "Otkaz", "Trades", new { id = item.Номер_сделки }, null)
+        </td>
+    </tr>
+}
+
+</table>

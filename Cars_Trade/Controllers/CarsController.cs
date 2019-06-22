@@ -173,9 +173,12 @@ namespace Cars_Trade.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Cars cars = db.Cars.Find(id);
-            db.Cars.Remove(cars);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (cars.ID_состояния_авто == 1)
+            {
+                db.Cars.Remove(cars);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index_Admin");
         }
 
         protected override void Dispose(bool disposing)

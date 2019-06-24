@@ -60,7 +60,7 @@ namespace Cars_Trade.Controllers
                     trades.Сумма_сделки = cars.Цена_за_сутки * 7;
                     trades.Номер_и_серия_паспорта = clients.Номер_и_серия_паспрта;
                     int n = 0;
-                    if (db.Trades!=null)
+                    if (db.Trades.Count()!=0)
                     n = db.Trades.Max(t => t.Номер_сделки);
                     trades.Номер_сделки = Convert.ToByte(n+1);//Создание ключа сделки
                     db.Trades.Add(trades);
@@ -78,7 +78,7 @@ namespace Cars_Trade.Controllers
                     trades.Сумма_сделки = cars.Цена_за_сутки * 7;
                     trades.Номер_и_серия_паспорта = clients.Номер_и_серия_паспрта;
                     int n = 0;
-                    if (db.Trades != null)
+                    if (db.Trades.Count() != 0)
                         n = db.Trades.Max(t => t.Номер_сделки);
                     trades.Номер_сделки = Convert.ToByte(n + 1);//Создание ключа сделки
                     db.Trades.Add(trades);

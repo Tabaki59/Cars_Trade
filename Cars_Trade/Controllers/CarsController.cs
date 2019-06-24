@@ -48,6 +48,7 @@ namespace Cars_Trade.Controllers
             Choose.choose = 3;
             //var cars = db.Cars.Include(c => c.ID_класса_автомобиля1).Include(c => c.ID_состояния_авто1).Include(c => c.ID_типа_двигателя1).Include(c => c.ID_типа_коробки1).Include(c => c.ID_типа_кузова1).Include(c => c.ID_типа_привода1).Include(c => c.ID_типа_страховки1).Include(c => c.ID_типа_топлива1);
             var cars = from c in db.Cars
+                       where c.ID_состояния_авто == 1
                        select c;
             return View(cars.ToList());
         }
@@ -92,7 +93,7 @@ namespace Cars_Trade.Controllers
                 cars.ID_состояния_авто = 1;
                 db.Cars.Add(cars);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index_Admin");
             }
 
             ViewBag.ID_класса_автомобиля = new SelectList(db.ID_класса_автомобиля, "ID_класса_автомобиля1", "Класс_автомобиля", cars.ID_класса_автомобиля);

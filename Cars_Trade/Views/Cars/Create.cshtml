@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Добавление автомобиля</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,21 +12,21 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Cars</h4>
+        <h4>Данные</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Госномер, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Госномер, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Госномер, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Госномер, new { htmlAttributes = new { @class = "form-control", @pattern = "[A-Za-zА-Яа-яЁё-0-9]{9}", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Госномер, "9 символов (Буквы и цифры)", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Модель, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Модель, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Модель, new { htmlAttributes = new { @class = "form-control", @maxlength = "60", @pattern = "[A-Za-zА-Яа-яЁё]+$", required = "required" } })
                 @Html.ValidationMessageFor(model => model.Модель, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,40 +58,40 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Объем_двигателя, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Объем_двигателя, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Объем_двигателя, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Объем_двигателя, new { htmlAttributes = new { @class = "form-control", @pattern = "[0-9]{1}", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Объем_двигателя, "В литрах, округлить до целого 1 однозначная цифра", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Расход_на_100_км, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Расход_на_100_км, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Расход_на_100_км, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Расход_на_100_км, new { htmlAttributes = new { @class = "form-control", @maxlength = "2", @pattern = "[0-9]+$", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Расход_на_100_км, "В литрах, округлить до целого", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Год_выпуска, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Год_выпуска, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Год_выпуска, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Год_выпуска, new { htmlAttributes = new { @class = "form-control", @pattern = "[0-9]{4}", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Год_выпуска, "4 цифры", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Количество_мест, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Количество_мест, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Количество_мест, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Количество_мест, new { htmlAttributes = new { @class = "form-control", @pattern = "[0-9]{1}", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Количество_мест, "1 цифра", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Вместимость_багажника, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Вместимость_багажника, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Вместимость_багажника, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Вместимость_багажника, new { htmlAttributes = new { @class = "form-control", @maxlength = "3", @pattern = "[0-9]+$", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Вместимость_багажника, "В литрах", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -114,8 +114,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Цена_за_сутки, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Цена_за_сутки, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Цена_за_сутки, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Цена_за_сутки, new { htmlAttributes = new { @class = "form-control", @maxlength = "5", @pattern = "[0-9]+$", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Цена_за_сутки, "В рублях", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -143,9 +143,6 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

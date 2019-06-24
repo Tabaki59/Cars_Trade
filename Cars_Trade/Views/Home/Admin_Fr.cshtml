@@ -12,6 +12,13 @@
 
         </p>
         <p>
+            @using (Html.BeginForm("Index", "Cars", FormMethod.Post))
+            {<center></center><br>
+                <center><button>Просмотреть список всех автомобилей</button></center>
+            }
+
+        </p>
+        <p>
             @using (Html.BeginForm("Index", "Trades", FormMethod.Post))
             {<center></center><br>
                 <center><button>Просмотреть список всех сделок</button></center>
